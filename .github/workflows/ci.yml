@@ -36,7 +36,7 @@ jobs:
           bundler-cache: true
 
       - name: Scan for security vulnerabilities in JavaScript dependencies
-        run: chmod u+x bin/importmap audit
+        run: bin/importmap audit
 
   lint:
     runs-on: ubuntu-latest
@@ -51,7 +51,7 @@ jobs:
           bundler-cache: true
 
       - name: Lint code for consistent style
-        run: chmod u+x bin/rubocop -f github
+        run: bin/rubocop -f github
 
   test:
     runs-on: ubuntu-latest
@@ -80,7 +80,7 @@ jobs:
           RAILS_ENV: test
           # REDIS_URL: redis://localhost:6379/0
         run: |
-          chmod +x bin/rails
+          bin/rails
           bin/rails db:create
           bin/rails db:migrate
           bin/rails test
